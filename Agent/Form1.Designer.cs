@@ -31,20 +31,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.Nome_cliente = new System.Windows.Forms.TextBox();
+            this.Service = new System.Windows.Forms.ComboBox();
+            this.listView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.dtp_DataeHora = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Location = new System.Drawing.Point(7, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 0;
@@ -69,44 +72,48 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Data e Hora";
             // 
-            // textBox1
+            // Nome_cliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(80, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Nome_cliente.Location = new System.Drawing.Point(80, 19);
+            this.Nome_cliente.Name = "Nome_cliente";
+            this.Nome_cliente.Size = new System.Drawing.Size(140, 20);
+            this.Nome_cliente.TabIndex = 3;
+            this.Nome_cliente.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // comboBox1
+            // Service
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Service.FormattingEnabled = true;
+            this.Service.Items.AddRange(new object[] {
             "Toroca de HD",
             "Impressora",
             "Troca de perifericos",
             "Não liga"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.Service.Location = new System.Drawing.Point(80, 59);
+            this.Service.Name = "Service";
+            this.Service.Size = new System.Drawing.Size(140, 21);
+            this.Service.TabIndex = 4;
             // 
-            // listView1
+            // listView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(359, 40);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(382, 337);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView.FullRowSelect = true;
+            this.listView.GridLines = true;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(359, 40);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(382, 337);
+            this.listView.TabIndex = 5;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Cliente";
+            this.columnHeader1.Width = 65;
             // 
             // columnHeader2
             // 
@@ -120,17 +127,53 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.dtp_DataeHora);
+            this.groupBox1.Controls.Add(this.btnRemove);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.Service);
+            this.groupBox1.Controls.Add(this.Nome_cliente);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(27, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(242, 286);
+            this.groupBox1.Size = new System.Drawing.Size(242, 188);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agendamento";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(63, 159);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Agendar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(145, 159);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 6;
+            this.btnRemove.Text = "Remover";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // dtp_DataeHora
+            // 
+            this.dtp_DataeHora.CustomFormat = "";
+            this.dtp_DataeHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_DataeHora.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dtp_DataeHora.Location = new System.Drawing.Point(78, 99);
+            this.dtp_DataeHora.Name = "dtp_DataeHora";
+            this.dtp_DataeHora.Size = new System.Drawing.Size(142, 20);
+            this.dtp_DataeHora.TabIndex = 7;
+            this.dtp_DataeHora.TabStop = false;
+            this.dtp_DataeHora.Value = new System.DateTime(2025, 6, 7, 20, 51, 21, 0);
+            this.dtp_DataeHora.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // Form1
             // 
@@ -138,7 +181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView);
             this.Name = "Form1";
             this.Text = "Chamado";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -153,13 +196,16 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox Nome_cliente;
+        private System.Windows.Forms.ComboBox Service;
+        private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.DateTimePicker dtp_DataeHora;
     }
 }
 
