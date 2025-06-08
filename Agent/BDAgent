@@ -1,0 +1,24 @@
+create database BDAgent	
+use database BDAgent
+
+
+table servicos(
+cod_servios int primary key not null,
+tipo_servicos varchar(30) not null,
+Observacao varchar(300) not null,
+cod_cliente foreign key references cliente
+cod_chamado foreign key references informacoes
+);
+
+table cliente(
+cod_cliente int primary key not null,
+nome_cliente varchar(100) not null,
+cpf int not null
+);
+
+
+table informacoes(
+cod_chamado int primary key not null,
+date not null,
+time not null
+);
