@@ -38,9 +38,12 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
             this.dtp_DataeHora = new System.Windows.Forms.DateTimePicker();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Observação = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.obs_box = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,19 +95,21 @@
             this.Service.Name = "Service";
             this.Service.Size = new System.Drawing.Size(140, 21);
             this.Service.TabIndex = 4;
+            this.Service.SelectedIndexChanged += new System.EventHandler(this.Service_SelectedIndexChanged);
             // 
             // listView
             // 
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.Observação});
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
-            this.listView.Location = new System.Drawing.Point(359, 40);
+            this.listView.Location = new System.Drawing.Point(350, 25);
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(382, 337);
+            this.listView.Size = new System.Drawing.Size(438, 381);
             this.listView.TabIndex = 5;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -123,10 +128,12 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Date";
-            this.columnHeader3.Width = 132;
+            this.columnHeader3.Width = 91;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.obs_box);
             this.groupBox1.Controls.Add(this.dtp_DataeHora);
             this.groupBox1.Controls.Add(this.btnRemove);
             this.groupBox1.Controls.Add(this.button1);
@@ -137,30 +144,10 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(27, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(242, 188);
+            this.groupBox1.Size = new System.Drawing.Size(242, 304);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agendamento";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(63, 159);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Agendar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Location = new System.Drawing.Point(145, 159);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 6;
-            this.btnRemove.Text = "Remover";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.button2_Click);
             // 
             // dtp_DataeHora
             // 
@@ -174,6 +161,48 @@
             this.dtp_DataeHora.TabStop = false;
             this.dtp_DataeHora.Value = new System.DateTime(2025, 6, 7, 20, 51, 21, 0);
             this.dtp_DataeHora.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(147, 275);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 6;
+            this.btnRemove.Text = "Remover";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(65, 275);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(76, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Agendar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Observação
+            // 
+            this.Observação.Text = "Observação";
+            this.Observação.Width = 149;
+            // 
+            // obs_box
+            // 
+            this.obs_box.Location = new System.Drawing.Point(80, 154);
+            this.obs_box.Name = "obs_box";
+            this.obs_box.Size = new System.Drawing.Size(140, 20);
+            this.obs_box.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Observação";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Form1
             // 
@@ -206,6 +235,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.DateTimePicker dtp_DataeHora;
+        private System.Windows.Forms.ColumnHeader Observação;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox obs_box;
     }
 }
 
