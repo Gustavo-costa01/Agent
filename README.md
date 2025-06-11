@@ -3,3 +3,6 @@ apresentado nos dispositivos ou periféricos. O sistema registra a data e hora d
 com um campo de observação para a inclusão de informações adicionais, permitindo que outro técnico possa dar 
 continuidade ou concluir o atendimento de forma eficiente.
 Foi utilizado Windows Forms e Banco de dados Mysql.
+Henrique Dias
+Gustavo Costa
+Bruno Fernandes
